@@ -49,20 +49,20 @@
 
 @interface RHIntervalTree : NSObject
 
--(instancetype)initWithIntervalObjects:(NSArray*)intervals; //all added objects should implement the RHIntervalProtocol
+-(instancetype _Nonnull)initWithIntervalObjects:(NSArray* _Nonnull)intervals; //all added objects should implement the RHIntervalProtocol
 
 @property (nonatomic, readonly) NSInteger minStart;
 @property (nonatomic, readonly) NSInteger maxStop;
 
-@property (nonatomic, readonly, copy) NSArray *allObjects;
+@property (nonatomic, readonly, copy) NSArray* _Nonnull allObjects;
 
 //Contained methods return objects fully contained within the start and stop(inclusive) coordinates.
--(NSArray*)containedObjectsInRange:(NSRange)range;
--(NSArray*)containedObjectsBetweenStart:(NSInteger)start andStop:(NSInteger)stop;
+-(NSArray* _Nonnull)containedObjectsInRange:(NSRange)range;
+-(NSArray* _Nonnull)containedObjectsBetweenStart:(NSInteger)start andStop:(NSInteger)stop;
 
 //Overlapping methods return objects which are contained or partially overlap the start and stop(inclusive) coordinates.
--(NSArray*)overlappingObjectsInRange:(NSRange)range;
--(NSArray*)overlappingObjectsBetweenStart:(NSInteger)start andStop:(NSInteger)stop;
+-(NSArray* _Nonnull)overlappingObjectsInRange:(NSRange)range;
+-(NSArray* _Nonnull)overlappingObjectsBetweenStart:(NSInteger)start andStop:(NSInteger)stop;
 
 @end
 
@@ -70,13 +70,13 @@
 //convenience object that implements the RHIntervalProtocol
 @interface RHInterval : NSObject <RHIntervalProtocol>
 
-@property (nonatomic, readonly) id<NSObject> object;
+@property (nonatomic, readonly) id<NSObject> _Nullable object;
 @property (nonatomic, readonly) NSRange range;
 
-+(instancetype)intervalWithRange:(NSRange)range object:(id<NSObject>)object;
-+(instancetype)intervalWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object;
++(instancetype _Nonnull)intervalWithRange:(NSRange)range object:(id<NSObject> _Nullable)object;
++(instancetype _Nonnull)intervalWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject> _Nullable)object;
 
--(instancetype)initWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object;
+-(instancetype _Nonnull)initWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject> _Nullable)object;
 
 @end
 
