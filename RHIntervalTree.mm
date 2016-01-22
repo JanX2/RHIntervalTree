@@ -70,8 +70,7 @@
 
 -(void)dealloc{
     delete _intervalTree;
-    [_intervals release]; _intervals = nil;
-    [super dealloc];
+     _intervals = nil;
 }
 
 #pragma mark counts;
@@ -143,7 +142,7 @@
 }
 
 +(instancetype)intervalWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object{
-    return  [[[RHInterval alloc] initWithStart:start stop:stop object:object] autorelease];
+    return  [[RHInterval alloc] initWithStart:start stop:stop object:object];
 }
 
 -(instancetype)initWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object{
@@ -154,7 +153,7 @@
     if (self){
         _start = start;
         _stop = stop;
-        _object = [object retain];
+        _object = object;
     }
     return self;
 }
@@ -182,8 +181,7 @@
 }
 
 -(void)dealloc{
-    [_object release]; _object = nil;
-    [super dealloc];
+     _object = nil;
 }
 
 @end

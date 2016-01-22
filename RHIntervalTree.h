@@ -70,8 +70,8 @@
 //convenience object that implements the RHIntervalProtocol
 @interface RHInterval : NSObject <RHIntervalProtocol>
 
-@property (nonatomic, readonly) id<NSObject> _Nullable object;
-@property (nonatomic, readonly) NSRange range;
+@property (nonatomic, readonly, strong) id<NSObject> _Nullable object;
+@property (nonatomic, readonly, assign) NSRange range;
 
 +(instancetype _Nonnull)intervalWithRange:(NSRange)range object:(id<NSObject> _Nullable)object;
 +(instancetype _Nonnull)intervalWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject> _Nullable)object;

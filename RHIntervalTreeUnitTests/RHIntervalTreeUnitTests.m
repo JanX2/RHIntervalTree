@@ -127,7 +127,6 @@
     
     XCTAssertTrue(tree.minStart == 2, @"minStart is not right");
     XCTAssertTrue(tree.maxStop == 106, @"maxStop is not right");
-    [tree release];
 }
 
 
@@ -157,7 +156,6 @@
         XCTAssertEqualObjects(overlappingObject, [obj object], @"contained object was not right");
     }
         
-    [tree release];
 }
 
 -(void)testRHIntervalTreeOverlapping{
@@ -187,7 +185,6 @@
         XCTAssertEqualObjects(overlappingObject, [obj object], @"overlapping object was not right");
     }
     
-    [tree release];
 }
 
 
