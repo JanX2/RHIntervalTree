@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1364117516E076FA00C5910E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1364117416E076FA00C5910E /* SenTestingKit.framework */; };
 		1364117716E076FA00C5910E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1364117616E076FA00C5910E /* Cocoa.framework */; };
 		1364118116E076FA00C5910E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1364117F16E076FA00C5910E /* InfoPlist.strings */; };
 		1364118416E076FA00C5910E /* RHIntervalTreeUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1364118316E076FA00C5910E /* RHIntervalTreeUnitTests.m */; };
@@ -20,8 +19,7 @@
 		1364115116E05BFB00C5910E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1364116B16E05CD200C5910E /* RHIntervalTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHIntervalTree.h; sourceTree = "<group>"; };
 		1364116C16E05CD200C5910E /* RHIntervalTree.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RHIntervalTree.mm; sourceTree = "<group>"; };
-		1364117316E076FA00C5910E /* RHIntervalTreeUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RHIntervalTreeUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1364117416E076FA00C5910E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1364117316E076FA00C5910E /* RHIntervalTreeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RHIntervalTreeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1364117616E076FA00C5910E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		1364117916E076FA00C5910E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1364117A16E076FA00C5910E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -39,7 +37,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1364117516E076FA00C5910E /* SenTestingKit.framework in Frameworks */,
 				1364117716E076FA00C5910E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,7 +57,7 @@
 		1364114B16E05BFB00C5910E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1364117316E076FA00C5910E /* RHIntervalTreeUnitTests.octest */,
+				1364117316E076FA00C5910E /* RHIntervalTreeUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,7 +68,6 @@
 				1364114D16E05BFB00C5910E /* UIKit.framework */,
 				1364114F16E05BFB00C5910E /* Foundation.framework */,
 				1364115116E05BFB00C5910E /* CoreGraphics.framework */,
-				1364117416E076FA00C5910E /* SenTestingKit.framework */,
 				1364117616E076FA00C5910E /* Cocoa.framework */,
 				1364117816E076FA00C5910E /* Other Frameworks */,
 			);
@@ -128,7 +124,6 @@
 				1364116E16E076FA00C5910E /* Sources */,
 				1364116F16E076FA00C5910E /* Frameworks */,
 				1364117016E076FA00C5910E /* Resources */,
-				1364117116E076FA00C5910E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -136,8 +131,8 @@
 			);
 			name = RHIntervalTreeUnitTests;
 			productName = RHIntervalTreeUnitTests;
-			productReference = 1364117316E076FA00C5910E /* RHIntervalTreeUnitTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 1364117316E076FA00C5910E /* RHIntervalTreeUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -146,6 +141,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RH;
+				LastTestingUpgradeCheck = 0720;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Richard Heard";
 			};
@@ -176,22 +172,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1364117116E076FA00C5910E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1364116E16E076FA00C5910E /* Sources */ = {
@@ -276,7 +256,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RHIntervalTreeUnitTests/RHIntervalTreeUnitTests-Prefix.pch";
@@ -285,7 +268,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -295,7 +277,10 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RHIntervalTreeUnitTests/RHIntervalTreeUnitTests-Prefix.pch";
@@ -304,7 +289,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

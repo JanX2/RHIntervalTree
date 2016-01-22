@@ -80,9 +80,9 @@
     
 
      // check that the same number of results are returned
-    STAssertEquals(treeCounts.count, bruteForceCounts.count, @"should have same number of results");
+    XCTAssertEqual(treeCounts.count, bruteForceCounts.count, @"should have same number of results");
     for (NSUInteger i = 0; i < treeCounts.count; ++i) {
-        STAssertEqualObjects([treeCounts objectAtIndex:i], [bruteForceCounts objectAtIndex:i], @"should have same number of results");
+        XCTAssertEqualObjects([treeCounts objectAtIndex:i], [bruteForceCounts objectAtIndex:i], @"should have same number of results");
     }
     
 }
@@ -92,18 +92,18 @@
     NSString *testObject = @"test";
     
     RHInterval *interval = [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject];
-    STAssertTrue(interval.start == 5, @"start is not right");
-    STAssertTrue(interval.stop == 9, @"end is not right");
-    STAssertTrue(NSEqualRanges(interval.range, NSMakeRange(5, 5)), @"range is not right");
-    STAssertEqualObjects(interval.object, testObject, @"object is not right");
+    XCTAssertTrue(interval.start == 5, @"start is not right");
+    XCTAssertTrue(interval.stop == 9, @"end is not right");
+    XCTAssertTrue(NSEqualRanges(interval.range, NSMakeRange(5, 5)), @"range is not right");
+    XCTAssertEqualObjects(interval.object, testObject, @"object is not right");
         
     interval = [RHInterval intervalWithStart:5 stop:10 object:testObject];
-    STAssertTrue(interval.start == 5, @"start is not right");
-    STAssertTrue(interval.stop == 10, @"end is not right");
-    STAssertTrue(NSEqualRanges(interval.range, NSMakeRange(5, 6)), @"range is not right");
-    STAssertEqualObjects(interval.object, testObject, @"object is not right");
+    XCTAssertTrue(interval.start == 5, @"start is not right");
+    XCTAssertTrue(interval.stop == 10, @"end is not right");
+    XCTAssertTrue(NSEqualRanges(interval.range, NSMakeRange(5, 6)), @"range is not right");
+    XCTAssertEqualObjects(interval.object, testObject, @"object is not right");
     
-    STAssertThrows([RHInterval intervalWithRange:NSMakeRange(0, 0) object:nil], @"didnt throw exception for zero range and nil object");
+    XCTAssertThrows([RHInterval intervalWithRange:NSMakeRange(0, 0) object:nil], @"didnt throw exception for zero range and nil object");
     
 }
 
@@ -125,8 +125,8 @@
     RHIntervalTree *tree = [[RHIntervalTree alloc] initWithIntervalObjects:intervals];
 
     
-    STAssertTrue(tree.minStart == 2, @"minStart is not right");
-    STAssertTrue(tree.maxStop == 106, @"maxStop is not right");
+    XCTAssertTrue(tree.minStart == 2, @"minStart is not right");
+    XCTAssertTrue(tree.maxStop == 106, @"maxStop is not right");
     [tree release];
 }
 
@@ -151,10 +151,10 @@
 
     
     NSArray *results = [tree containedObjectsBetweenStart:10 andStop:15];
-    STAssertTrue(results.count == 3, @"count is not right");
+    XCTAssertTrue(results.count == 3, @"count is not right");
 
     for (RHInterval *obj in results) {
-        STAssertEqualObjects(overlappingObject, [obj object], @"contained object was not right");
+        XCTAssertEqualObjects(overlappingObject, [obj object], @"contained object was not right");
     }
         
     [tree release];
@@ -181,10 +181,10 @@
 
 
     NSArray *results = [tree overlappingObjectsBetweenStart:10 andStop:15];
-    STAssertTrue(results.count == 4, @"overlapping count is not right");
+    XCTAssertTrue(results.count == 4, @"overlapping count is not right");
     
     for (RHInterval *obj in results) {
-        STAssertEqualObjects(overlappingObject, [obj object], @"overlapping object was not right");
+        XCTAssertEqualObjects(overlappingObject, [obj object], @"overlapping object was not right");
     }
     
     [tree release];

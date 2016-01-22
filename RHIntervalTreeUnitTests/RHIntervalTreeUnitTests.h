@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Richard Heard. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface RHIntervalTreeUnitTests : SenTestCase
+@interface RHIntervalTreeUnitTests : XCTestCase
 
 -(void)testRHIntervalTreePerformanceAndAccuracy;
 
