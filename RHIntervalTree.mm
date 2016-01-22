@@ -40,7 +40,7 @@
     IntervalTree<RHInterval*> *_intervalTree;
 }
 
--(id)initWithIntervalObjects:(NSArray *)intervals{
+-(instancetype)initWithIntervalObjects:(NSArray *)intervals{
     if (!intervals) [NSException raise:NSInvalidArgumentException format:@"intervals must not be nil"];
     
     self = [super init];
@@ -135,18 +135,18 @@
     id<NSObject> _object;
 }
 
-+(id)intervalWithRange:(NSRange)range object:(id<NSObject>)object{
++(instancetype)intervalWithRange:(NSRange)range object:(id<NSObject>)object{
     if (range.location == NSNotFound) [NSException raise:NSInvalidArgumentException format:@"range.location must not be NSNotFound"];
     if (range.length == 0) [NSException raise:NSInvalidArgumentException format:@"range.length must not be 0"];
     
     return [self intervalWithStart:range.location stop:range.location + range.length - 1 object:object];
 }
 
-+(id)intervalWithStart:(NSInteger)start stop:(NSInteger)stop object:(id)object{
++(instancetype)intervalWithStart:(NSInteger)start stop:(NSInteger)stop object:(id)object{
     return  [[[RHInterval alloc] initWithStart:start stop:stop object:object] autorelease];
 }
 
--(id)initWithStart:(NSInteger)start stop:(NSInteger)stop object:(id)object{
+-(instancetype)initWithStart:(NSInteger)start stop:(NSInteger)stop object:(id)object{
     if (start > stop) [NSException raise:NSInvalidArgumentException format:@"start must be greater than stop"];
     if (!object) [NSException raise:NSInvalidArgumentException format:@"object can not be nil"];
     
@@ -178,7 +178,7 @@
 }
 
 -(NSString*)description{
-    return [NSString stringWithFormat:@"%@ (%li->%li) %@", [super description], (long)_start, (long)_stop, _object];
+    return [NSString stringWithFormat:@"%@ (%li->%li) %@", super.description, (long)_start, (long)_stop, _object];
 }
 
 -(void)dealloc{

@@ -58,7 +58,7 @@
                 [results addObject:interval];
             }
         }
-        [bruteForceCounts addObject:[NSNumber numberWithUnsignedInteger:results.count]];
+        [bruteForceCounts addObject:@(results.count)];
     }
     clock_t t1 = clock() / (CLOCKS_PER_SEC / 1000);
     clock_t difference = t1 - t0;
@@ -72,7 +72,7 @@
     
     for (RHInterval *query in queries) {
         NSArray *results = [tree containedObjectsBetweenStart:query.start andStop:query.stop];
-        [treeCounts addObject:[NSNumber numberWithUnsignedInteger:results.count]];
+        [treeCounts addObject:@(results.count)];
     }
     t1 = clock() / (CLOCKS_PER_SEC / 1000);
     difference = t1 - t0;
@@ -82,7 +82,7 @@
      // check that the same number of results are returned
     XCTAssertEqual(treeCounts.count, bruteForceCounts.count, @"should have same number of results");
     for (NSUInteger i = 0; i < treeCounts.count; ++i) {
-        XCTAssertEqualObjects([treeCounts objectAtIndex:i], [bruteForceCounts objectAtIndex:i], @"should have same number of results");
+        XCTAssertEqualObjects(treeCounts[i], bruteForceCounts[i], @"should have same number of results");
     }
     
 }
@@ -110,17 +110,17 @@
 -(void)testRHIntervalTreeMinMax{
     NSString *testObject = @"test";
 
-    NSArray *intervals = [NSArray arrayWithObjects:
-                         [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
-                         [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
-                         [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
-                         [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
-                         [RHInterval intervalWithRange:NSMakeRange(7, 100) object:testObject],
-                         [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
-                         [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
-                         [RHInterval intervalWithRange:NSMakeRange(2, 5) object:testObject],
-                         [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
-                         nil];
+    NSArray *intervals = @[
+                           [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(7, 100) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(2, 5) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(5, 5) object:testObject]
+                           ];
     
     RHIntervalTree *tree = [[RHIntervalTree alloc] initWithIntervalObjects:intervals];
 
@@ -135,17 +135,17 @@
     NSString *testObject = @"test";
     NSString *overlappingObject = @"overlap";
     
-    NSArray *intervals = [NSArray arrayWithObjects:
-                          [RHInterval intervalWithRange:NSMakeRange(1, 1) object:testObject],
-                          [RHInterval intervalWithRange:NSMakeRange(3, 1) object:testObject],
-                          [RHInterval intervalWithRange:NSMakeRange(5, 1) object:testObject],
-                          [RHInterval intervalWithRange:NSMakeRange(7, 1) object:testObject],
-                          [RHInterval intervalWithRange:NSMakeRange(9, 1) object:testObject],
-                          [RHInterval intervalWithRange:NSMakeRange(11,1) object:overlappingObject],
-                          [RHInterval intervalWithRange:NSMakeRange(13,1) object:overlappingObject],
-                          [RHInterval intervalWithRange:NSMakeRange(15,2) object:testObject],
-                          [RHInterval intervalWithRange:NSMakeRange(12,2) object:overlappingObject],
-                          nil];
+    NSArray *intervals = @[
+                           [RHInterval intervalWithRange:NSMakeRange(1, 1) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(3, 1) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(5, 1) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(7, 1) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(9, 1) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(11,1) object:overlappingObject],
+                           [RHInterval intervalWithRange:NSMakeRange(13,1) object:overlappingObject],
+                           [RHInterval intervalWithRange:NSMakeRange(15,2) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(12,2) object:overlappingObject]
+                           ];
     
     RHIntervalTree *tree = [[RHIntervalTree alloc] initWithIntervalObjects:intervals];
 
@@ -164,17 +164,17 @@
     NSString *testObject = @"test";
     NSString *overlappingObject = @"overlap";
     
-    NSArray *intervals = [NSArray arrayWithObjects:
-                          [RHInterval intervalWithRange:NSMakeRange(1, 1) object:testObject],
-                          [RHInterval intervalWithRange:NSMakeRange(3, 1) object:testObject],
-                          [RHInterval intervalWithRange:NSMakeRange(5, 1) object:testObject],
-                          [RHInterval intervalWithRange:NSMakeRange(7, 1) object:testObject],
-                          [RHInterval intervalWithRange:NSMakeRange(9, 1) object:testObject],
-                          [RHInterval intervalWithRange:NSMakeRange(11,1) object:overlappingObject],
-                          [RHInterval intervalWithRange:NSMakeRange(13,1) object:overlappingObject],
-                          [RHInterval intervalWithRange:NSMakeRange(15,2) object:overlappingObject],
-                          [RHInterval intervalWithRange:NSMakeRange(12,2) object:overlappingObject],
-                          nil];
+    NSArray *intervals = @[
+                           [RHInterval intervalWithRange:NSMakeRange(1, 1) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(3, 1) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(5, 1) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(7, 1) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(9, 1) object:testObject],
+                           [RHInterval intervalWithRange:NSMakeRange(11,1) object:overlappingObject],
+                           [RHInterval intervalWithRange:NSMakeRange(13,1) object:overlappingObject],
+                           [RHInterval intervalWithRange:NSMakeRange(15,2) object:overlappingObject],
+                           [RHInterval intervalWithRange:NSMakeRange(12,2) object:overlappingObject]
+                           ];
     
     RHIntervalTree *tree = [[RHIntervalTree alloc] initWithIntervalObjects:intervals];
     

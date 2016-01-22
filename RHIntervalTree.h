@@ -41,20 +41,20 @@
 @protocol RHIntervalProtocol <NSObject>
 
 @required
--(NSInteger)start;
--(NSInteger)stop;
+@property (nonatomic, readonly) NSInteger start;
+@property (nonatomic, readonly) NSInteger stop;
 
 @end
 
 
 @interface RHIntervalTree : NSObject
 
--(id)initWithIntervalObjects:(NSArray*)intervals; //all added objects should implement the RHIntervalProtocol
+-(instancetype)initWithIntervalObjects:(NSArray*)intervals NS_DESIGNATED_INITIALIZER; //all added objects should implement the RHIntervalProtocol
 
--(NSInteger)minStart;
--(NSInteger)maxStop;
+@property (nonatomic, readonly) NSInteger minStart;
+@property (nonatomic, readonly) NSInteger maxStop;
 
--(NSArray*)allObjects;
+@property (nonatomic, readonly, copy) NSArray *allObjects;
 
 //Contained methods return objects fully contained within the start and stop(inclusive) coordinates.
 -(NSArray*)containedObjectsInRange:(NSRange)range;
@@ -73,10 +73,10 @@
 @property (nonatomic, readonly) id<NSObject> object;
 @property (nonatomic, readonly) NSRange range;
 
-+(id)intervalWithRange:(NSRange)range object:(id<NSObject>)object;
-+(id)intervalWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object;
++(instancetype)intervalWithRange:(NSRange)range object:(id<NSObject>)object;
++(instancetype)intervalWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object;
 
--(id)initWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object;
+-(instancetype)initWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object NS_DESIGNATED_INITIALIZER;
 
 @end
 
