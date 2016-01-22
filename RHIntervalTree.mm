@@ -142,11 +142,11 @@
     return [self intervalWithStart:range.location stop:range.location + range.length - 1 object:object];
 }
 
-+(instancetype)intervalWithStart:(NSInteger)start stop:(NSInteger)stop object:(id)object{
++(instancetype)intervalWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object{
     return  [[[RHInterval alloc] initWithStart:start stop:stop object:object] autorelease];
 }
 
--(instancetype)initWithStart:(NSInteger)start stop:(NSInteger)stop object:(id)object{
+-(instancetype)initWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object{
     if (start > stop) [NSException raise:NSInvalidArgumentException format:@"start must be greater than stop"];
     if (!object) [NSException raise:NSInvalidArgumentException format:@"object can not be nil"];
     
