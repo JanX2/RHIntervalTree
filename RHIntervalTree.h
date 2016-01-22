@@ -49,7 +49,7 @@
 
 @interface RHIntervalTree : NSObject
 
--(instancetype)initWithIntervalObjects:(NSArray*)intervals NS_DESIGNATED_INITIALIZER; //all added objects should implement the RHIntervalProtocol
+-(instancetype)initWithIntervalObjects:(NSArray*)intervals; //all added objects should implement the RHIntervalProtocol
 
 @property (nonatomic, readonly) NSInteger minStart;
 @property (nonatomic, readonly) NSInteger maxStop;
@@ -76,7 +76,7 @@
 +(instancetype)intervalWithRange:(NSRange)range object:(id<NSObject>)object;
 +(instancetype)intervalWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object;
 
--(instancetype)initWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithStart:(NSInteger)start stop:(NSInteger)stop object:(id<NSObject>)object;
 
 @end
 
