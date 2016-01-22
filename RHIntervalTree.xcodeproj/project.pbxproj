@@ -53,6 +53,7 @@
 				1364114B16E05BFB00C5910E /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		1364114B16E05BFB00C5910E /* Products */ = {
 			isa = PBXGroup;
