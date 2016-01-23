@@ -116,6 +116,10 @@
     return [self overlappingObjectsForStart:start andStop:stop];
 }
 
+-(NSArray*)overlappingObjectsForIndex:(NSUInteger)idx{
+    return [self overlappingObjectsForStart:idx andStop:1];
+}
+
 -(NSArray*)overlappingObjectsForRange:(NSRange)range{
     return [self overlappingObjectsForStart:range.location andStop:range.location + range.length];
 }
