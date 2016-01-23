@@ -55,6 +55,7 @@
         
         //setup the interval tree
         vector<Interval<RHInterval*> > intervalsVector;
+        intervalsVector.reserve(intervals.count);
         
         for (RHInterval *interval in _intervals) {
             intervalsVector.push_back(Interval<RHInterval*>(interval.start, interval.stop, interval));
