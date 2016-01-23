@@ -189,7 +189,7 @@
 }
 
 -(NSString*)description{
-    return [NSString stringWithFormat:@"%@ (%li->%li) %@", super.description, (long)_start, (long)_stop, _object];
+    return [NSString stringWithFormat:@"%@ (%li->%li) %@ %@", super.description, (long)_start, (long)_stop, NSStringFromRange(self.range), _object];
 }
 
 -(void)dealloc{
