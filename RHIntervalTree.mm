@@ -102,7 +102,7 @@
         [mutableResults addObject:interval.value];
     }
     
-    return [NSArray arrayWithArray:mutableResults];
+    return mutableResults;
 }
 
 
@@ -135,7 +135,7 @@
         [mutableResults addObject:interval.value];
     }
     
-    return [NSArray arrayWithArray:mutableResults];
+    return mutableResults;
 }
 
 @end
