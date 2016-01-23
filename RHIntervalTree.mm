@@ -109,10 +109,18 @@
 #pragma mark - interval overlapping objects
 
 -(NSArray*)overlappingObjectsInRange:(NSRange)range{
-    return [self overlappingObjectsBetweenStart:range.location andStop:range.location + range.length];
+    return [self overlappingObjectsForRange:range];
 }
 
 -(NSArray*)overlappingObjectsBetweenStart:(NSInteger)start andStop:(NSInteger)stop{
+    return [self overlappingObjectsForStart:start andStop:stop];
+}
+
+-(NSArray*)overlappingObjectsForRange:(NSRange)range{
+    return [self overlappingObjectsForStart:range.location andStop:range.location + range.length];
+}
+
+-(NSArray*)overlappingObjectsForStart:(NSInteger)start andStop:(NSInteger)stop{
     vector<Interval<RHInterval*> > resultsVector;
     _intervalTree->findOverlapping(start, stop, resultsVector);
     

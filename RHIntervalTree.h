@@ -61,8 +61,11 @@
 -(NSArray* _Nonnull)containedObjectsBetweenStart:(NSInteger)start andStop:(NSInteger)stop;
 
 //Overlapping methods return objects which are contained or partially overlap the start and stop(inclusive) coordinates.
--(NSArray* _Nonnull)overlappingObjectsInRange:(NSRange)range;
--(NSArray* _Nonnull)overlappingObjectsBetweenStart:(NSInteger)start andStop:(NSInteger)stop;
+-(NSArray* _Nonnull)overlappingObjectsForRange:(NSRange)range;
+-(NSArray* _Nonnull)overlappingObjectsForStart:(NSInteger)start andStop:(NSInteger)stop;
+
+-(NSArray* _Nonnull)overlappingObjectsInRange:(NSRange)range __attribute((deprecated(("Please use -overlappingObjectsForRange: instead."))));
+-(NSArray* _Nonnull)overlappingObjectsBetweenStart:(NSInteger)start andStop:(NSInteger)stop __attribute((deprecated(("Please use -overlappingObjectsForStart:andStop: instead."))));
 
 @end
 

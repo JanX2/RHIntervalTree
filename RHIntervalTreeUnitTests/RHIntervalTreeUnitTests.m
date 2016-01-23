@@ -178,7 +178,7 @@
     
 
 
-    NSArray *results = [tree overlappingObjectsBetweenStart:10 andStop:15];
+    NSArray *results = [tree overlappingObjectsForStart:10 andStop:15];
     XCTAssertTrue(results.count == 4, @"overlapping count is not right");
     
     for (RHInterval *obj in results) {
